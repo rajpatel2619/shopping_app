@@ -21,15 +21,17 @@ class ProductDetailScreen extends StatelessWidget {
               Container(
                 height: 300,
                 width: double.infinity,
-                child: Image.network(
-                  loadedProduct.imageUrl,
+                child: Image(
+                  image: NetworkImage(loadedProduct.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              Text('\$${loadedProduct.price}',style: TextStyle(color: Colors.grey,fontSize: 20),
+              Text(
+                '\$${loadedProduct.price}',
+                style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
               SizedBox(
                 height: 10,
@@ -42,7 +44,6 @@ class ProductDetailScreen extends StatelessWidget {
                   softWrap: true,
                 ),
               ),
-
             ],
           ),
         ));
