@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_app/helpers/custom_route.dart';
 import 'package:shopping_app/providers/auth.dart';
 import 'package:shopping_app/providers/cart.dart';
 import 'package:shopping_app/providers/orders.dart';
@@ -43,7 +44,14 @@ class MyApp extends StatelessWidget {
           builder: (ctx, auth, _) => MaterialApp(
             title: 'Shopping app',
             theme: ThemeData(
-                primarySwatch: Colors.purple, accentColor: Colors.deepOrange),
+                primarySwatch: Colors.purple,
+                 pageTransitionsTheme: PageTransitionsTheme(
+                  builders: {
+                    TargetPlatform.android: CustomPageTransitionBuilder(),
+                    // TargetPlatform.iOS
+                  },
+                ),
+                 accentColor: Colors.deepOrange),
             // home: ProductsOverviewScreen(),
             home: 
             auth.isAuth 
